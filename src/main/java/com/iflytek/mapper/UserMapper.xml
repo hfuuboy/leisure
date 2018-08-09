@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iflytek.dao.UserMapper">
+
+	<resultMap type="com.iflytek.entity.User" id="userMap">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="password" column="password"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="sex" column="sex"/>
+	</resultMap>
+
+	<insert id="addUser" parameterType="com.iflytek.entity.User">
+		INSERT INTO tb_user(name,password,email,phone,sex)VALUES(#{name},#{password},#{email},#{phone},#{sex});
+	</insert>
+	
+	<update id="updateUser" parameterType="int">
+		UPDATE tb_user SET
+		<if test="name != null" > name=#{name},</if>
+		<if test="password != null">password=#{password},</if>
+		<if test="email != null">email=#{email},</if>
+		<if test="phone != null">phone=#{phone},</if>
+		<if test="sex != null">sex=#{sex}</if>
+		 WHERE id=#{id}
+	</update>
+	
+	<select id="getUserById" resultMap="userMap" parameterType="int">
+		SELECT * FROM tb_user where id=#{id}
+	</select>
+	
+	<delete id="deleteUser" parameterType="int">
+		DELETE FROM tb_user WHERE id=#{id}
+	</delete>
+	
+	<select id="getUserList" resultMap="userMap">
+		SELECT * FROM tb_user;
+	</select>
+
+	<update id="updateUserPwd">
+		UPDATE tb_user set password=#{password} WHERE id=#{id}
+	</update>
+	
+	<select id="checkUser" resultMap="userMap">
+		SELECT * FROM tb_user WHERE name=#{name} and password=#{password}
+	</select>
+	
+	<select id="checkName" parameterType="String" resultType="int">
+		SELECT count(*) FROM tb_user WHERE name=#{name}
+	</select>
+</mapper>
