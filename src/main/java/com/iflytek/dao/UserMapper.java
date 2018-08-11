@@ -45,7 +45,18 @@ public interface UserMapper {
 	 */
 	void updateUserPwd(@Param("id")int id,@Param("password")String password);
 	
+	/**
+	 * 登录时判断用户名密码是否正确
+	 * @param name
+	 * @param password
+	 * @return
+	 */
 	User checkUser(@Param("name")String name,@Param("password")String password);
 	
+	/**
+	 * 新增时判断用户是否存在
+	 * @param name
+	 * @return
+	 */
 	int checkName(String name);
 }
