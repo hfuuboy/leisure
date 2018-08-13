@@ -44,7 +44,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:spring-mybatis.xml" />
-		<property name="mapperLocations" value="classpath:com/iflytek/**/*.xml"></property>
+		<property name="mapperLocations" value="classpath*:com/iflytek/**/*.xml"></property>
 	</bean>
 	<!--表示自动扫描com.iflytek.dao下的每个mapper映射文件 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
