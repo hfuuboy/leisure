@@ -17,12 +17,14 @@
 	</insert>
 	
 	<update id="updateUser" parameterType="com.iflytek.entity.User">
-		UPDATE tb_user SET
-		<if test="name != null" > name=#{name},</if>
-		<if test="password != null">password=#{password},</if>
-		<if test="email != null">email=#{email},</if>
-		<if test="phone != null">phone=#{phone},</if>
-		<if test="sex != null">sex=#{sex}</if>
+		UPDATE tb_user
+		<set>
+			<if test="name != null" > name=#{name},</if>
+			<if test="password != null">password=#{password},</if>
+			<if test="email != null">email=#{email},</if>
+			<if test="phone != null">phone=#{phone},</if>
+			<if test="sex != null">sex=#{sex}</if>
+		</set>
 		 WHERE id=#{id}
 	</update>
 	

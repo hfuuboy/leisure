@@ -19,6 +19,8 @@ public class TestMapper {
 	
 	@Autowired
 	private UserMapper userMapper;
+	
+	private User user = new User();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -30,7 +32,6 @@ public class TestMapper {
 
 	@Test
 	public void testAddUser() {
-		User user = new User();
 		user.setName("lucy");
 		user. setPassword("lucy123456");
 		user.setEmail("lucy@sina.com");
@@ -39,4 +40,15 @@ public class TestMapper {
 		userMapper.addUser(user);
 	}
 
+	@Test
+	public void testUpdateUser() {
+		user.setId(21);
+		user.setName("luly123456");
+		userMapper.updateUser(user);
+	}
+	
+	@Test
+	public void testDeleteUser() {
+		userMapper.deleteUser(22);
+	}
 }
