@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.iflytek.entity.User;
 import com.iflytek.service.UserService;
 
@@ -59,9 +62,13 @@ public class UserController {
 	public ModelAndView toUserList() {
 		
 		ModelAndView mv = new ModelAndView("userList");
+		
+		PageHelper.startPage(1, 10);
 		List<User> list = userService.getUserList();
+		PageInfo<User> page = new PageInfo<User>(list);
 		
 		mv.addObject("list", list);
+		mv.addObject("page", page);
 		
 		return mv;
 	}

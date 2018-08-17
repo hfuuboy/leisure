@@ -49,6 +49,6 @@ public class TestMapper {
 	
 	@Test
 	public void testDeleteUser() {
-		userMapper.deleteUser(22);
+		userMapper.deleteUser(20);
 	}
 }
