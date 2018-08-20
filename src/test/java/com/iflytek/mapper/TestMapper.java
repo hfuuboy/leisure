@@ -1,6 +1,8 @@
-package com.iflytek.service;
+package com.iflytek.mapper;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -50,5 +52,11 @@ public class TestMapper {
 	@Test
 	public void testDeleteUser() {
 		userMapper.deleteUser(20);
+	}
+	
+	@Test
+	public void testGetUserList() {
+		List<User> list = userMapper.getUserList();
+		System.out.println(list.size());
 	}
 }
