@@ -46,7 +46,7 @@
 		<property name="configLocation" value="classpath:spring-mybatis.xml" />
 		<property name="mapperLocations" value="classpath*:com/iflytek/**/*.xml"></property>
 		<!-- pagehelper分页插件 -->
-		<property name="plugins">
+		<!-- <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
                     <property name="properties">
@@ -59,7 +59,7 @@
                     </property>
                 </bean>
             </array>
-        </property>
+        </property> -->
 	</bean>
 	<!--表示自动扫描com.iflytek.dao下的每个mapper映射文件 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

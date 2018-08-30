@@ -63,12 +63,12 @@ public class UserController {
 		
 		ModelAndView mv = new ModelAndView("userList");
 		
-		PageHelper.startPage(1, 10);
+//		PageHelper.startPage(1, 10);
 		List<User> list = userService.getUserList();
-		PageInfo<User> page = new PageInfo<User>(list);
+//		PageInfo<User> page = new PageInfo<User>(list);
 		
 		mv.addObject("list", list);
-		mv.addObject("page", page);
+//		mv.addObject("page", page);
 		
 		return mv;
 	}
